@@ -71,7 +71,7 @@ int main(void)
     // Fragment shader
     GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
 
-    glShaderSource(fragmentShader, 2, &FRAGMENT_SHADER_SOURCE, nullptr);
+    glShaderSource(fragmentShader, 1, &FRAGMENT_SHADER_SOURCE, nullptr);
     glCompileShader(fragmentShader);
 
     // Create shader program
@@ -87,12 +87,39 @@ int main(void)
     glDeleteShader(vertexShader);
     glDeleteShader(fragmentShader);
 
+    GLuint VBO;
+    GLuint VAO;
+
+    glGenVertexArrays(1, &VAO);
+    glGenBuffers(1, &VBO);
+
+    glBindVertexArray(VAO);
+
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3. * sizeof(float), static_cast<void*>(0));
+    glEnableVertexAttribArray(0);
+
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindVertexArray(0);
+
+    // Render color
+    glClearColor(0.5f, 0.3f, 0.7f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+
+    glfwSwapBuffers(window);
+
     // Loop until the user closes the window
     while (!glfwWindowShouldClose(window))
     {
         /* Render here */
         glClearColor(0.5f, 0.3f, 0.7f, 1.0f); // Render color
         glClear(GL_COLOR_BUFFER_BIT);
+        glUseProgram(shaderProgram);
+        glBindVertexArray(VAO);
+        glDrawArrays(GL_TRIANGLES, 0, 3);
 
         // Swap front and back buffers
         glfwSwapBuffers(window);
@@ -100,6 +127,13 @@ int main(void)
         // Poll for and process events
         glfwPollEvents();
     }
+
+    glDeleteVertexArrays(1, &VAO);
+    glDeleteBuffers(1, &VBO);
+    glDeleteProgram(shaderProgram);
+
+    // Delete window before ending the program
+    glfwDestroyWindow(window);
 
     glfwTerminate();
 
