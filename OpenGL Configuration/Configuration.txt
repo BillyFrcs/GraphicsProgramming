@@ -8,7 +8,7 @@ Linker -> Input: glfw3.lib;opengl32.lib;User32.lib;Gdi32.lib;Shell32.lib;
 GLEW Set-Up in Visual Studio 2022:
 C/C++ -> Preprocessor: GLEW_STATIC;
 C/C++ -> General -> Additional Include Directories: $(SolutionDir)Dependencies\GLEW\include
-Linker -> General -> Additional Library Directories: $(SolutionDir)Dependencies\GLEW\lib\Release\x64
+Linker -> General -> Additional Library Directories: $(SolutionDir)Dependencies\GLEW\lib\Released\WinX64
 Linker -> Input: glew32s.lib
 
 GLAD Set-Up in Visual Studio 2022:
