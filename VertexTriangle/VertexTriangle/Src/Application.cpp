@@ -3,6 +3,22 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
+// Vertex shader
+const char* VERTEX_SHADER_SOURCE = "#version 330 core\n"
+"layout (location = 0) in vec3 aPos;\n"
+"void main()\n"
+"{\n"
+"   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
+"}\0";
+
+// Fragment shader 
+const char* FRAGMENT_SHADER_SOURCE = "#version 330 core\n"
+"out vec4 FragColor;\n"
+"void main()\n"
+"{\n"
+"   FragColor = vec4(0.8f, 0.3f, 0.02f, 1.0f);\n"
+"}\n\0";
+
 int main(void)
 {
     // Initialize the library
@@ -13,6 +29,13 @@ int main(void)
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+    GLfloat vertices[] =
+    {
+        -0.5f, -0.5f * static_cast<float>(sqrt(3)) / 3, 0.0f,
+        0.5f, -0.5f * static_cast<float>(sqrt(3)) / 3, 0.0f,
+        0.0f, 0.5f * static_cast<float>(sqrt(3)) * 2 / 3, 0.0f
+    };
 
     // Create a windowed mode window and its OpenGL context
     GLFWwindow* window = glfwCreateWindow(640, 480, "My Application", nullptr, nullptr);
@@ -34,9 +57,35 @@ int main(void)
 
     std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << std::endl;
 
+    // Gen buffers
     unsigned int value;
 
     glGenBuffers(1, &value);
+
+    // Vertex shader source
+    GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
+
+    glShaderSource(vertexShader, 1, &VERTEX_SHADER_SOURCE, nullptr);
+    glCompileShader(vertexShader);
+
+    // Fragment shader
+    GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+
+    glShaderSource(fragmentShader, 2, &FRAGMENT_SHADER_SOURCE, nullptr);
+    glCompileShader(fragmentShader);
+
+    // Create shader program
+    GLuint shaderProgram = glCreateProgram();
+
+    glAttachShader(shaderProgram, vertexShader);
+    glAttachShader(shaderProgram, fragmentShader);
+
+    // Link shader program
+    glLinkProgram(shaderProgram);
+
+    // Delete shader program
+    glDeleteShader(vertexShader);
+    glDeleteShader(fragmentShader);
 
     // Loop until the user closes the window
     while (!glfwWindowShouldClose(window))
