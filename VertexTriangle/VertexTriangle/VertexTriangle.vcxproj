@@ -153,6 +153,20 @@
   <ItemGroup>
     <ClCompile Include="..\..\CreateWindow\CreateWindow\Src\glad.c" />
     <ClCompile Include="Src\Application.cpp" />
+    <ClCompile Include="Src\Buffer.cpp" />
+    <ClCompile Include="Src\Shader.cpp" />
+    <ClCompile Include="Src\VertexArray.cpp" />
+    <ClCompile Include="Src\VertexBuffer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Default.vert" />
+    <None Include="Default.frag" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Src\Buffer.h" />
+    <ClInclude Include="Src\Shader.h" />
+    <ClInclude Include="Src\VertexArray.h" />
+    <ClInclude Include="Src\VertexBuffer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
