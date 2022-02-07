@@ -38,14 +38,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Default.vert">
-      <Filter>Resource Files\Shaders</Filter>
-    </None>
-    <None Include="Default.frag">
-      <Filter>Resource Files\Shaders</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="Src\Shader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -58,5 +50,13 @@
     <ClInclude Include="Src\VertexArray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shaders\Fragment.frag">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="Shaders\Vertex.vert">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

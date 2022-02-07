@@ -12,8 +12,8 @@
 #include "Buffer.h"
 
 // Windows screen
-constexpr int WIDTH = 640;
-constexpr int HEIGHT = 480;
+constexpr auto WIDTH = 640;
+constexpr auto HEIGHT = 480;
 
 // Vertices coordinates
 GLfloat vertices[] =
@@ -69,7 +69,7 @@ int main(void)
 
     std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << std::endl;
 
-    Shader ShaderProgram("Default.vert", "Default.frag");
+    Shader ShaderProgram("Shaders/Vertex.vert", "Shaders/Fragment.frag");
 
     VertexArray VAO;
     VAO.Bind();

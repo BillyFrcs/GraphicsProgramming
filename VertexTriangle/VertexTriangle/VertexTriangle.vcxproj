@@ -159,14 +159,14 @@
     <ClCompile Include="Src\VertexBuffer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Default.vert" />
-    <None Include="Default.frag" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="Src\Buffer.h" />
     <ClInclude Include="Src\Shader.h" />
     <ClInclude Include="Src\VertexArray.h" />
     <ClInclude Include="Src\VertexBuffer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shaders\Fragment.frag" />
+    <None Include="Shaders\Vertex.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
