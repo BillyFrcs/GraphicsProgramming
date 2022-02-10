@@ -19,4 +19,4 @@ Combine all the Dependencies:
 Include: $(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\GLAD\include;
 Libraries: $(SolutionDir)Dependencies\GLFW\lib-vc2022;$(SolutionDir)Dependencies\GLEW\lib\Released\WinX64;
 Input: glew32s.lib;glfw3.lib;opengl32.lib;User32.lib;Gdi32.lib;Shell32.lib;
-C/C++ -> Preprocessor: GLEW_STATIC;
+Preprocessor: GLEW_STATIC;
