@@ -46,7 +46,7 @@ int main(void)
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     // Create a windowed mode window and its OpenGL context
-    GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "My Application", nullptr, nullptr);
+    GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Vertex Triangle", nullptr, nullptr);
 
     if (!window)
     {
@@ -77,14 +77,13 @@ int main(void)
 
     VertexBuffer* VBO = new VertexBuffer(vertices, sizeof(vertices));
 
-    Buffer EBO(indices, sizeof(indices));
+    Buffer* EBO = new Buffer(indices, sizeof(indices));
 
     VAO->LinkVBO(*VBO, 0);
 
     VAO->Unbind();
-
     VBO->Unbind();
-    EBO.Unbind();
+    EBO->Unbind();
 
     glfwSwapBuffers(window);
 
@@ -112,7 +111,7 @@ int main(void)
     // Delete all the objects
     VAO->Delete();
     VBO->Delete();
-    EBO.Delete();
+    EBO->Delete();
 
     ShaderProgram.Delete();
 
