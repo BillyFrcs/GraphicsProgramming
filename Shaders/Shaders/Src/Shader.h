@@ -11,8 +11,6 @@
 #include <iostream>
 #include <cerrno>
 
-std::string GetFile(const char* fileName);
-
 class Shader
 {
 public:
@@ -23,6 +21,8 @@ public:
 
 private:
 	static void CompileError(unsigned int shader, const char* type);
+
+	static std::string GetFile(const char* fileName);
 
 public:
 	GLuint ID;

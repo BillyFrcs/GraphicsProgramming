@@ -1,27 +1,5 @@
 #include "Shader.h"
 
-std::string GetFile(const char* fileName)
-{
-	std::ifstream input(fileName, std::ios::binary);
-
-	if (input)
-	{
-		std::string content;
-
-		input.seekg(0, std::ios::end);
-
-		content.resize(input.tellg());
-
-		input.seekg(0, std::ios::beg);
-		input.read(&content[0], content.size());
-		input.close();
-
-		return content;
-	}
-
-	throw(errno); 
-}
-
 Shader::Shader(const char* vertexFile, const char* fragmentFile)
 {
 	std::string vertexCode = GetFile(vertexFile);
@@ -67,6 +45,28 @@ void Shader::Activate() const
 void Shader::Delete() const 
 {
 	glDeleteProgram(ID);
+}
+
+std::string Shader::GetFile(const char* fileName)
+{
+	std::ifstream input(fileName, std::ios::binary);
+
+	if (input)
+	{
+		std::string content;
+
+		input.seekg(0, std::ios::end);
+
+		content.resize(input.tellg());
+
+		input.seekg(0, std::ios::beg);
+		input.read(&content[0], content.size());
+		input.close();
+
+		return content;
+	}
+
+	throw(errno);
 }
 
 void Shader::CompileError(unsigned int shader, const char* type)
