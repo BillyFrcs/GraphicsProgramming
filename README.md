@@ -10,3 +10,4 @@ To set-up and configuration modern OpenGL, The project should using some of thes
 - [GLFW](https://www.glfw.org/)
 - [GLEW](http://glew.sourceforge.net/)
 - [GLAD](https://glad.dav1d.de/)
+- [STB](https://github.com/nothings/stb)
