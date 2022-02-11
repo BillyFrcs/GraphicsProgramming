@@ -156,6 +156,7 @@
     <ClCompile Include="Src\glad.c" />
     <ClCompile Include="Src\Shader.cpp" />
     <ClCompile Include="Src\Stb.cpp" />
+    <ClCompile Include="Src\Textures.cpp" />
     <ClCompile Include="Src\VertexArray.cpp" />
     <ClCompile Include="Src\VertexBuffer.cpp" />
   </ItemGroup>
@@ -166,8 +167,13 @@
   <ItemGroup>
     <ClInclude Include="Src\Buffer.h" />
     <ClInclude Include="Src\Shader.h" />
+    <ClInclude Include="Src\Textures.h" />
     <ClInclude Include="Src\VertexArray.h" />
     <ClInclude Include="Src\VertexBuffer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Textures\Leaf.png" />
+    <Image Include="Textures\ReaperMan.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

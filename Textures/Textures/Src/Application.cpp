@@ -11,27 +11,34 @@
 #include "VertexArray.h"
 #include "VertexBuffer.h"
 #include "Buffer.h"
+#include "Textures.h"
 
 // Window screen
-static constexpr auto WIDTH = 640;
-static constexpr auto HEIGHT = 480;
-
-// Vertices coordinates
-GLfloat vertices[] =
+namespace Window
 {
-    // Coordinates      // Color
-    -0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, // Lower left corner  
-    -0.5f,  0.5f, 0.0f, 0.0f, 1.0f, 0.0f, // Upper left corner
-     0.5f,  0.5f, 0.0f, 0.0f, 0.0f, 1.0f, // Upper right corner
-     0.5f, -0.5f, 0.0f, 1.0f, 1.0f, 1.0f, // Lower right left
-};
+    static constexpr auto WIDTH = 640;
+    static constexpr auto HEIGHT = 480;
+}
 
-// Vertices indices
-GLuint indices[] =
+namespace Transform
 {
-    0, 2, 1, // Upper
-    0, 3, 2, // Lower
-};
+    // Vertices coordinates
+    GLfloat vertices[] =
+    {
+        // Coordinates      // Color
+        -0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, // Lower left corner  
+        -0.5f,  0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, // Upper left corner
+         0.5f,  0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, // Upper right corner
+         0.5f, -0.5f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f // Lower right left
+    };
+
+    // Vertices indices
+    GLuint indices[] =
+    {
+        0, 2, 1, // Upper
+        0, 3, 2, // Lower
+    };
+}
 
 int main(void)
 {
@@ -45,7 +52,7 @@ int main(void)
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     // Create a windowed mode window and its OpenGL context
-    GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Shaders", nullptr, nullptr);
+    GLFWwindow* window = glfwCreateWindow(Window::WIDTH, Window::HEIGHT, "Shaders", nullptr, nullptr);
 
     if (!window)
     {
@@ -60,28 +67,40 @@ int main(void)
     glfwMakeContextCurrent(window);
     gladLoadGL();
 
-    glViewport(0, 0, WIDTH, HEIGHT);
+    glViewport(0, 0, Window::WIDTH, Window::HEIGHT);
 
     // Check OpenGL version
     std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << std::endl;
 
     Shader ShaderProgram("Shaders/Vertex.vert", "Shaders/Fragment.frag");
 
-    auto* VAO = new VertexArray();
+    // Create object
+    const auto* VAO = new VertexArray();
+
+    // Bind vertex buffer
     VAO->Bind();
 
-    auto* VBO = new VertexBuffer(vertices, sizeof(vertices));
+    auto* VBO = new VertexBuffer(Transform::vertices, sizeof(Transform::vertices));
 
-    Buffer* EBO = new Buffer(indices, sizeof(indices));
+    const Buffer* EBO = new Buffer(Transform::indices, sizeof(Transform::indices));
 
-    VAO->LinkAttribute(*VBO, 0, 3, GL_FLOAT, 6 * sizeof(float), static_cast<void*>(0));
-    VAO->LinkAttribute(*VBO, 1, 3, GL_FLOAT, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+    // Link the vertex attribute
+    VertexArray::LinkAttribute(*VBO, 0, 3, GL_FLOAT, 8 * sizeof(float), static_cast<void*>(0));
+    VertexArray::LinkAttribute(*VBO, 1, 3, GL_FLOAT, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+    VertexArray::LinkAttribute(*VBO, 2, 2, GL_FLOAT, 8 * sizeof(float), (void*)(6 * sizeof(float)));
 
-    VAO->Unbind();
-    VBO->Unbind();
+    // Unbind vertex
+    VertexArray::Unbind();
+    VertexBuffer::Unbind();
     EBO->Unbind();
 
-    GLuint Uniform = glGetUniformLocation(ShaderProgram.ID, "scale");
+    // Create shader uniform
+    const GLint shaderUniform = glGetUniformLocation(ShaderProgram.ID, "scale");
+
+    // Textures object
+    Textures* TextureImage = new Textures("Textures/Leaf.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
+
+    Textures::TextureUnit(ShaderProgram, "Texture", GL_ZERO);
 
     // Loop until the user closes the window
     while (!glfwWindowShouldClose(window))
@@ -91,8 +110,9 @@ int main(void)
         glClear(GL_COLOR_BUFFER_BIT);
 
         ShaderProgram.Activate();
-        glUniform1f(Uniform, 0.5f);
+        glUniform1f(shaderUniform, 0.5f);
 
+        TextureImage->Bind();
         VAO->Bind();
 
         // Draw the pattern
@@ -105,11 +125,15 @@ int main(void)
         glfwPollEvents();
     }
 
-    // Delete all the objects
+    // Delete all the vertex objects
     VAO->Delete();
     VBO->Delete();
     EBO->Delete();
 
+    // Delete texture
+    TextureImage->Delete();
+
+    // Delete shader program
     ShaderProgram.Delete();
 
     // Delete window before ending the program
@@ -117,5 +141,5 @@ int main(void)
 
     glfwTerminate();
 
-    return EXIT_SUCCESS;
+    return GL_ZERO;
 }
