@@ -2,7 +2,7 @@
 
 Textures::Textures(const char* image, GLenum textureType, GLenum slot, GLenum format, GLenum pixelType)
 {
-	this->type = textureType;
+    this->type = textureType;
 
     // Texture image
     int width;
