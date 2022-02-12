@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef VERTEX_ARRAY_H
-#define VERTEX_ARRAY_H
+#ifndef VERTEX_ARRAY_HPP
+#define VERTEX_ARRAY_HPP
 
 #include "VertexBuffer.hpp"
 

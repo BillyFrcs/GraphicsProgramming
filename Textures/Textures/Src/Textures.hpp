@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef TEXTURES_H
-#define TEXTURES_H
+#ifndef TEXTURES_HPP
+#define TEXTURES_HPP
 
 #include <glad/glad.h>
 #include <stb_image.h>
