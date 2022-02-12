@@ -1,4 +1,4 @@
-#include "VertexBuffer.h"
+#include "VertexBuffer.hpp"
 
 VertexBuffer::VertexBuffer(GLfloat* vertices, GLsizeiptr size)
 {
