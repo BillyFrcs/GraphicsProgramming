@@ -7,11 +7,11 @@
 #include <GLFW/glfw3.h>
 #include <stb_image.h>
 
-#include "Shader.h"
-#include "VertexArray.h"
-#include "VertexBuffer.h"
-#include "Buffer.h"
-#include "Textures.h"
+#include "Shader.hpp"
+#include "VertexArray.hpp"
+#include "VertexBuffer.hpp"
+#include "Buffer.hpp"
+#include "Textures.hpp"
 
 // Window screen
 namespace Window

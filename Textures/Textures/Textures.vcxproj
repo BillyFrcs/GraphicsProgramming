@@ -165,11 +165,11 @@
     <None Include="Shaders\Vertex.vert" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Src\Buffer.h" />
-    <ClInclude Include="Src\Shader.h" />
-    <ClInclude Include="Src\Textures.h" />
-    <ClInclude Include="Src\VertexArray.h" />
-    <ClInclude Include="Src\VertexBuffer.h" />
+    <ClInclude Include="Src\Buffer.hpp" />
+    <ClInclude Include="Src\Shader.hpp" />
+    <ClInclude Include="Src\Textures.hpp" />
+    <ClInclude Include="Src\VertexArray.hpp" />
+    <ClInclude Include="Src\VertexBuffer.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Textures\Leaf.png" />

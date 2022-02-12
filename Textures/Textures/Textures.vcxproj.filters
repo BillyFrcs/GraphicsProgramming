@@ -55,19 +55,19 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Src\Buffer.h">
+    <ClInclude Include="Src\Buffer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Shader.h">
+    <ClInclude Include="Src\Shader.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\VertexArray.h">
+    <ClInclude Include="Src\VertexArray.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\VertexBuffer.h">
+    <ClInclude Include="Src\VertexBuffer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Textures.h">
+    <ClInclude Include="Src\Textures.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

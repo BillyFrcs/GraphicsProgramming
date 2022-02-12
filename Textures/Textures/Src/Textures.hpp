@@ -6,7 +6,7 @@
 #include <glad/glad.h>
 #include <stb_image.h>
 
-#include "Shader.h"
+#include "Shader.hpp"
 
 class Textures
 {

@@ -1,4 +1,4 @@
-#include "Textures.h"
+#include "Textures.hpp"
 
 Textures::Textures(const char* image, GLenum textureType, GLenum slot, GLenum format, GLenum pixelType)
 {
