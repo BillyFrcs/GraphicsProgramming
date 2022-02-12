@@ -6,10 +6,10 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-#include "Shader.h"
-#include "VertexArray.h"
-#include "VertexBuffer.h"
-#include "Buffer.h"
+#include "Shader.hpp"
+#include "VertexArray.hpp"
+#include "VertexBuffer.hpp"
+#include "Buffer.hpp"
 
 // Window screen
 constexpr auto WIDTH = 640;
