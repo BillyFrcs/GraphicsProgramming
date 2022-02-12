@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef BUFFER_H
-#define BUFFER_H
+#ifndef BUFFER_HPP
+#define BUFFER_HPP
 
 #include <glad/glad.h>
 

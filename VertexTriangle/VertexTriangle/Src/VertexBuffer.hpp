@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef VERTEX_BUFFER_H
-#define VERTEX_BUFFER_H
+#ifndef VERTEX_BUFFER_HPP
+#define VERTEX_BUFFER_HPP
 
 #include <glad/glad.h>
 
