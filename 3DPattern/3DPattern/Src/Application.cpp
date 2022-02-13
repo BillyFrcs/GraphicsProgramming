@@ -7,12 +7,15 @@
 #include <GLFW/glfw3.h>
 #include <stb_image.h>
 #include <glm.hpp>
+#include <gtc/matrix_transform.hpp>
+#include <gtc/type_ptr.hpp>
 
 #include "Shader.hpp"
 #include "VertexArray.hpp"
 #include "VertexBuffer.hpp"
 #include "Buffer.hpp"
 #include "Textures.hpp"
+#include "PatternObject.hpp"
 
 // Window screen
 namespace Window
@@ -26,18 +29,23 @@ namespace Transform
     // Vertices coordinates
     GLfloat vertices[] =
     {
-        // Coordinates      // Color
-        -0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, // Lower left corner  
-        -0.5f,  0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, // Upper left corner
-         0.5f,  0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, // Upper right corner
-         0.5f, -0.5f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f // Lower right left
+        // Coordinates      // Color             // Texture
+        -0.5f, 0.1f,  0.5f, 0.83f, 0.70f, 0.44f, 0.0f, 0.0f,
+        -0.5f, 0.1f, -0.5f, 0.83f, 0.70f, 0.44f, 5.0f, 0.0f,
+         0.5f, 0.1f, -0.5f, 0.83f, 0.70f, 0.44f, 0.0f, 0.0f,
+    	 0.5f, 0.1f,  0.5f, 0.83f, 0.70f, 0.44f, 5.0f, 0.0f,
+         0.0f, 0.9f,  0.0f, 0.92f, 0.86f, 0.76f, 2.5f, 5.0f
     };
 
     // Vertices indices
     GLuint indices[] =
     {
-        0, 2, 1, // Upper
-        0, 3, 2, // Lower
+        0, 1, 2,
+        0, 2, 3,
+        0, 1, 4,
+        1, 2, 4,
+        2, 3, 4,
+        3, 0, 4
     };
 }
 
@@ -53,7 +61,7 @@ int main(void)
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     // Create a windowed mode window and its OpenGL context
-    GLFWwindow* window = glfwCreateWindow(Window::WIDTH, Window::HEIGHT, "Shaders", nullptr, nullptr);
+    GLFWwindow* window = glfwCreateWindow(Window::WIDTH, Window::HEIGHT, "3D Pattern", nullptr, nullptr);
 
     if (!window)
     {
@@ -99,25 +107,43 @@ int main(void)
     const GLint shaderUniform = glGetUniformLocation(ShaderProgram.ID, "scale");
 
     // Textures object
-    Textures* TextureImage = new Textures("Textures/Leaf.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
+    Textures* TextureImage = new Textures("Textures/Nise.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
 
     Textures::TextureUnit(ShaderProgram, "Texture", GL_ZERO);
+
+    // Pattern 3D object
+    PatternObject* Pattern = new PatternObject();
+
+    // Init timer
+    const double previousTime = glfwGetTime();
+
+    glEnable(GL_DEPTH_TEST);
 
     // Loop until the user closes the window
     while (!glfwWindowShouldClose(window))
     {
         /* Render here */
-        glClearColor(0.19f, 0.15f, 0.3f, 1.0f); // Render background color
-        glClear(GL_COLOR_BUFFER_BIT);
+        glClearColor(0.1f, 0.14f, 0.3f, 1.0f); // Render background color
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         ShaderProgram.Activate();
+
+        // Make simple timer to rotate the object
+        Pattern->TimerObjectPattern(previousTime);
+
+        // Create pattern 3D object
+        Pattern->Create3DObject(Window::WIDTH, Window::HEIGHT);
+
+        // Set the object location
+        Pattern->ObjectLocation(ShaderProgram.ID);
+
         glUniform1f(shaderUniform, 0.5f);
 
         TextureImage->Bind();
         VAO->Bind();
 
         // Draw the pattern
-        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+        glDrawElements(GL_TRIANGLES, sizeof(Transform::indices) / sizeof(int), GL_UNSIGNED_INT, GLM_NULLPTR);
 
         // Swap front and back buffers
         glfwSwapBuffers(window);

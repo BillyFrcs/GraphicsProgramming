@@ -45,6 +45,9 @@
     <ClCompile Include="Src\VertexArray.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Src\PatternObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Shaders\Fragment.frag">
@@ -56,9 +59,6 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Textures\Leaf.png">
-      <Filter>Resource Files\Textures</Filter>
-    </Image>
-    <Image Include="Textures\ReaperMan.png">
       <Filter>Resource Files\Textures</Filter>
     </Image>
   </ItemGroup>
@@ -76,6 +76,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Src\VertexBuffer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\PatternObject.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

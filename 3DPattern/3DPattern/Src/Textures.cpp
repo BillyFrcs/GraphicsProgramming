@@ -23,13 +23,14 @@ Textures::Textures(const char* image, GLenum textureType, GLenum slot, GLenum fo
     glTexParameteri(textureType, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameteri(textureType, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
-    /* Use this line of code if using GL_CLAMP_TO_BORDER
+    /*
+     // Use this line of code if using GL_CLAMP_TO_BORDER
        float flatColor[] = {1.0f, 1.0f, 1.0f, 1.0f};
        glTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, flatColor);
     */
 
     glTexImage2D(textureType, 0, GL_RGBA, width, height, 0, format, pixelType, bytes);
-    glGenerateMipmap(textureType);
+    glGenerateMipmap(this->type);
 
     stbi_image_free(bytes);
     glBindTexture(textureType, 0);
