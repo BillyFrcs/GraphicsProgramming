@@ -1,4 +1,4 @@
-Configuration to linker external C++ libraries in Visual Studio 2022.
+Configuration to linking external C++ include libraries in Visual Studio 2022.
 
 GLFW:
 C/C++ -> General -> Additional Include Directories: $(SolutionDir)Dependencies\GLFW\include
