@@ -15,14 +15,20 @@ GLAD:
 C/C++ -> General -> Additional Include Directories: $(SolutionDir)Dependencies\GLAD\include
 Source Files: glad.c
 
-STB:
-C/C++ -> General -> Additional Include Directories: $(SolutionDir)Dependencies\STB\include
-
 GLM:
 C/C++ -> General -> Additional Include Directories: $(SolutionDir)Dependencies\GLM\include;
 
+GLUT:
+C/C++ -> Preprocessor: NDEBUG;(Optional)
+C/C++ -> General -> Additional Include Directories: $(SolutionDir)Dependencies\GLUT\include
+Linker -> General -> Additional Library Directories: $(SolutionDir)Dependencies\GLUT\lib
+Linker -> Input: glu32.lib;glut32.lib
+
+STB:
+C/C++ -> General -> Additional Include Directories: $(SolutionDir)Dependencies\STB\include
+
 Combine all the Dependencies:
-Include: $(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\GLAD\include;$(SolutionDir)Dependencies\STB\include;$(SolutionDir)Dependencies\GLM\include;
-Libraries: $(SolutionDir)Dependencies\GLFW\lib-vc2022;$(SolutionDir)Dependencies\GLEW\lib\Released\WinX64;
-Input: glew32s.lib;glfw3.lib;opengl32.lib;User32.lib;Gdi32.lib;Shell32.lib;
-Preprocessor: GLEW_STATIC;
+Include: $(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\GLAD\include;$(SolutionDir)Dependencies\STB\include;$(SolutionDir)Dependencies\GLM\include;$(SolutionDir)Dependencies\GLUT\include;
+Libraries: $(SolutionDir)Dependencies\GLFW\lib-vc2022;$(SolutionDir)Dependencies\GLEW\lib\Released\WinX64;$(SolutionDir)Dependencies\GLUT\lib;
+Input: glew32s.lib;glfw3.lib;opengl32.lib;glu32.lib;glut32.lib;User32.lib;Gdi32.lib;Shell32.lib;
+Preprocessor: GLEW_STATIC;NDEBUG;
