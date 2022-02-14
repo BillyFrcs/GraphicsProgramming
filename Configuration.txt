@@ -13,7 +13,6 @@ Linker -> Input: glew32s.lib
 
 GLAD:
 C/C++ -> General -> Additional Include Directories: $(SolutionDir)Dependencies\GLAD\include
-Source Files: glad.c
 
 GLM:
 C/C++ -> General -> Additional Include Directories: $(SolutionDir)Dependencies\GLM\include;
