@@ -11,4 +11,5 @@ To set-up and configuration modern OpenGL, The project should using some of thes
 - [GLEW](http://glew.sourceforge.net/)
 - [GLAD](https://glad.dav1d.de/)
 - [GLM](https://glm.g-truc.net/0.9.9/)
+- [GLUT](http://freeglut.sourceforge.net/index.php#download)
 - [STB](https://github.com/nothings/stb)
