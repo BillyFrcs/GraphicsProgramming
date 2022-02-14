@@ -4,7 +4,7 @@
 #include <GL/GL.h>
 
 #include "Shapes.hpp"
-#include "Window.h"
+#include "Window.hpp"
 
 int main(int argc, char** argv)
 {
