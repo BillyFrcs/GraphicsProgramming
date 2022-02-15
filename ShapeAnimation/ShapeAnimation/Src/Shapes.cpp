@@ -166,7 +166,7 @@ void ShapesObject::Shapes::Reshape(GLsizei width, GLsizei height)
         height = 1; // To prevent divide by 0
     }
 
-    GLfloat aspect = static_cast<GLfloat>(width) / static_cast<GLfloat>(height);
+    const GLfloat aspect = static_cast<GLfloat>(width) / static_cast<GLfloat>(height);
 
     // Set the viewport to cover the new window
     glViewport(GL_ZERO, GL_ZERO, width, height);
