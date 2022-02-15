@@ -1,15 +1,15 @@
 Configuration to linking external C++ include libraries in Visual Studio 2022.
 
 GLFW:
-C/C++ -> General -> Additional Include Directories: $(SolutionDir)Dependencies\GLFW\include
-Linker -> General -> Additional Library Directories: $(SolutionDir)Dependencies\GLFW\lib-vc2022
+C/C++ -> General -> Additional Include Directories: $(SolutionDir)Dependencies\GLFW\include;
+Linker -> General -> Additional Library Directories: $(SolutionDir)Dependencies\GLFW\lib-vc2022;
 Linker -> Input: glfw3.lib;opengl32.lib;User32.lib;Gdi32.lib;Shell32.lib;
 
 GLEW:
 C/C++ -> Preprocessor: GLEW_STATIC;
-C/C++ -> General -> Additional Include Directories: $(SolutionDir)Dependencies\GLEW\include
-Linker -> General -> Additional Library Directories: $(SolutionDir)Dependencies\GLEW\lib\Released\WinX64
-Linker -> Input: glew32s.lib
+C/C++ -> General -> Additional Include Directories: $(SolutionDir)Dependencies\GLEW\include;
+Linker -> General -> Additional Library Directories: $(SolutionDir)Dependencies\GLEW\lib\Released\WinX64;
+Linker -> Input: glew32s.lib;
 
 GLAD:
 C/C++ -> General -> Additional Include Directories: $(SolutionDir)Dependencies\GLAD\include
@@ -19,14 +19,14 @@ C/C++ -> General -> Additional Include Directories: $(SolutionDir)Dependencies\G
 
 GLUT:
 C/C++ -> Preprocessor: NDEBUG;(Optional)
-C/C++ -> General -> Additional Include Directories: $(SolutionDir)Dependencies\GLUT\include
-Linker -> General -> Additional Library Directories: $(SolutionDir)Dependencies\GLUT\lib
+C/C++ -> General -> Additional Include Directories: $(SolutionDir)Dependencies\GLUT\include;
+Linker -> General -> Additional Library Directories: $(SolutionDir)Dependencies\GLUT\lib;
 Linker -> Input: glu32.lib;glut32.lib;freeglut.lib;
 Paste -> glut.dll & glut32.dll & freeglut.dll in C:/Windows/SysWOW64
 Paste -> glut32.dll & freeglut.dll in C:/Windows/System32
 
 STB:
-C/C++ -> General -> Additional Include Directories: $(SolutionDir)Dependencies\STB\include
+C/C++ -> General -> Additional Include Directories: $(SolutionDir)Dependencies\STB\include;
 
 Combine all the Dependencies Modern OpenGL:
 Include: $(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\GLAD\include;$(SolutionDir)Dependencies\STB\include;$(SolutionDir)Dependencies\GLM\include;
