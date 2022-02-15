@@ -12,7 +12,7 @@ Linker -> General -> Additional Library Directories: $(SolutionDir)Dependencies\
 Linker -> Input: glew32s.lib;
 
 GLAD:
-C/C++ -> General -> Additional Include Directories: $(SolutionDir)Dependencies\GLAD\include
+C/C++ -> General -> Additional Include Directories: $(SolutionDir)Dependencies\GLAD\include;
 
 GLM:
 C/C++ -> General -> Additional Include Directories: $(SolutionDir)Dependencies\GLM\include;
