@@ -12,7 +12,7 @@ typedef struct Window
 
 int main(int argc, char** argv)
 {
-        std::cerr << "Glut version: " << gluGetString(GLU_VERSION) << std::endl;
+	std::cerr << "Glut version: " << gluGetString(GLU_VERSION) << std::endl;
 
 	glutInit(&argc, argv);
 	glutInitWindowSize(Window::width, Window::height);
