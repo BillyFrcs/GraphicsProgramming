@@ -2,7 +2,7 @@
 
 Learning [OpenGL](https://www.opengl.org//) is a great way to learn how to use the graphics API such as 2D and 3D rendering vector graphics and create the basic to high-level cross-platform graphics application programming interface with modern OpenGL and C++ such as shaders, textures, animation, 3D, lighting etc.
 
-This repository contains simple implementation of 2D shape rendering graphics with [.NET C#](https://dotnet.microsoft.com/) Forms Application.
+This repository is also contains about simple implementation of 2D shape rendering graphics with [.NET C#](https://dotnet.microsoft.com/) Forms Application.
 
 ## Usage
 
