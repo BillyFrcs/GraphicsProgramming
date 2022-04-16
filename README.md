@@ -10,13 +10,12 @@ Currently only officially supports Windows. To run the project just simply find 
 
 > Info: Configuration to linking external libraries C++ can be found in [`Configuration.txt`](https://github.com/BillyFrcs/GraphicsProgramming/blob/master/Configuration.txt)
 
-## Libraries & Extension
+## Libraries
 
-To set-up and configuration modern OpenGL, The project should using some of these include libraries & extension.
+To set-up and configuration modern OpenGL, The project should using some of these include libraries.
 
-- [GLFW](https://www.glfw.org/)
-- [GLEW](http://glew.sourceforge.net/)
-- [GLAD](https://glad.dav1d.de/)
-- [GLM](https://glm.g-truc.net/0.9.9/)
-- [GLUT](http://freeglut.sourceforge.net/)
-- [STB](https://github.com/nothings/stb)
+|                  #1                  |                    #2                    |
+| :----------------------------------: | :--------------------------------------: |
+|    [GLFW](https://www.glfw.org/)     |   [GLM](https://glm.g-truc.net/0.9.9/)   |
+| [GLEW](http://glew.sourceforge.net/) | [GLUT](http://freeglut.sourceforge.net/) |
+|    [GLAD](https://glad.dav1d.de/)    |  [STB](https://github.com/nothings/stb)  |
