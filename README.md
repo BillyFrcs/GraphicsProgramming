@@ -1,12 +1,19 @@
-<h1 align="center">OpenGL Graphics API</h1>
+<h1 align="center">Graphics Programming</h1>
 
 Learning [OpenGL](https://www.opengl.org//) is a great way to learn how to use the graphics API such as 2D and 3D rendering vector graphics and create the basic to high-level cross-platform graphics application programming interface with modern OpenGL and C++ such as shaders, textures, animation, 3D, lighting etc.
 
+This repository contains simple implementation of 2D shape rendering graphics with [.NET C#](https://dotnet.microsoft.com/) Forms Application.
+
 ## Usage
-Currently only officially supports Windows. To run the project just simply find the ```.sln``` file and open it up in Visual Studio IDE. Also you could check the ```Dependencies``` folder to see the Include Library for configuration this project, Highly recommended to use [Visual Studio 2022](https://visualstudio.microsoft.com/downloads/) IDE. Configuration to linking external libraries C++ can be found in ```Configuration.txt```.
+
+Currently only officially supports Windows. To run the project just simply find the `.sln` file and open it up in Visual Studio IDE. Also you could check the `Dependencies` folder to see the Include Library for configuration this project, Highly recommended to use [Visual Studio 2022](https://visualstudio.microsoft.com/downloads/) IDE.
+
+> Tips: Configuration to linking external libraries C++ can be found in [`Configuration.txt`](https://github.com/BillyFrcs/GraphicsProgramming/blob/master/Configuration.txt)
 
 ## Include Libraries & Extension
+
 To set-up and configuration modern OpenGL, The project should using some of these include libraries & extension.
+
 - [GLFW](https://www.glfw.org/)
 - [GLEW](http://glew.sourceforge.net/)
 - [GLAD](https://glad.dav1d.de/)
