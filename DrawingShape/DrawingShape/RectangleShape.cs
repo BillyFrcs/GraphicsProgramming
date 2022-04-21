@@ -45,10 +45,8 @@ namespace DrawingShape
 
             const int x = 110;
             const int y = 50;
-            const int width = 120;
-            const int height = 120;
 
-            // DrawEllipse(x, y, width, height, brush1, brush2);
+            // DrawEllipse(x, y, 120, h120, brush1, brush2);
 
             DrawRectangle(x, y, 130, 130, ref brush1, ref brush2);
         }
