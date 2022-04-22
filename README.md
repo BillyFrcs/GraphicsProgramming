@@ -10,7 +10,7 @@ Currently only officially supports Windows. To run the project just simply find 
 
 > Info: Configuration to linking external libraries C++ can be found in [`Configuration.txt`](https://github.com/BillyFrcs/GraphicsProgramming/blob/master/Configuration.txt)
 
-## Libraries
+## Dependencies 
 
 To set-up and configuration modern OpenGL, The project should using some of these include libraries.
 
