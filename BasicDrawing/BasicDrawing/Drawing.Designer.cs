@@ -46,7 +46,7 @@
             // 
             this.PanelDrawing.Location = new System.Drawing.Point(4, 221);
             this.PanelDrawing.Name = "PanelDrawing";
-            this.PanelDrawing.Size = new System.Drawing.Size(492, 225);
+            this.PanelDrawing.Size = new System.Drawing.Size(490, 225);
             this.PanelDrawing.TabIndex = 0;
             // 
             // DrawButton
