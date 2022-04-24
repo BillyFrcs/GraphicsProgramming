@@ -35,6 +35,7 @@
             // 
             // RectanglePanel
             // 
+            this.RectanglePanel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RectanglePanel.Controls.Add(this.ExitButton);
             this.RectanglePanel.Location = new System.Drawing.Point(12, 12);
             this.RectanglePanel.Name = "RectanglePanel";
@@ -44,6 +45,7 @@
             // 
             // ExitButton
             // 
+            this.ExitButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ExitButton.Location = new System.Drawing.Point(349, 324);
             this.ExitButton.Name = "ExitButton";
             this.ExitButton.Size = new System.Drawing.Size(89, 34);

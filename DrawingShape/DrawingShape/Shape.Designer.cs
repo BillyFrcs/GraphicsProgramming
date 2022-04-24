@@ -35,6 +35,7 @@
             // 
             // DrawingShapePanel
             // 
+            this.DrawingShapePanel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.DrawingShapePanel.Controls.Add(this.ExitButton);
             this.DrawingShapePanel.Location = new System.Drawing.Point(-1, 0);
             this.DrawingShapePanel.Name = "DrawingShapePanel";
@@ -44,6 +45,7 @@
             // 
             // ExitButton
             // 
+            this.ExitButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ExitButton.Location = new System.Drawing.Point(369, 343);
             this.ExitButton.Name = "ExitButton";
             this.ExitButton.Size = new System.Drawing.Size(82, 29);
