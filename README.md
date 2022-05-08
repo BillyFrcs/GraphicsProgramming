@@ -14,7 +14,7 @@ Currently only officially supports Windows. To run the project just simply find 
 
 To set-up and configuration modern OpenGL, The project should using some of these include libraries.
 
-|                  #1                  |                    #2                    |
+|                  1                   |                    2                    |
 | :----------------------------------: | :--------------------------------------: |
 |    [GLFW](https://www.glfw.org/)     |   [GLM](https://glm.g-truc.net/0.9.9/)   |
 | [GLEW](http://glew.sourceforge.net/) | [GLUT](http://freeglut.sourceforge.net/) |
