@@ -18,4 +18,4 @@ public:
 	GLuint ID;
 };
 
-#endif 
+#endif
