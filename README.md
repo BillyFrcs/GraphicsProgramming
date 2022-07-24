@@ -8,7 +8,7 @@ This repository is also contains about simple implementation of 2D shape renderi
 
 Currently only officially supports Windows. To run the project just simply find the `.sln` file and open it up in Visual Studio IDE. Also you could check the `Dependencies` folder to see the Include Library for configuration this project, Highly recommended to use [Visual Studio 2022](https://visualstudio.microsoft.com/downloads/) IDE.
 
-> Info: Configuration to linking external libraries C++ can be found in [`Configuration.txt`](https://github.com/BillyFrcs/GraphicsProgramming/blob/master/Configuration.txt)
+> Note: Configuration to linking external libraries C++ can be found in [`Configuration.txt`](https://github.com/BillyFrcs/GraphicsProgramming/blob/master/Configuration.txt)
 
 ## Dependencies 
 
